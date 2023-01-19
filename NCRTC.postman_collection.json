@@ -1,0 +1,1666 @@
+{
+	"info": {
+		"_postman_id": "04a20292-e2ad-4e5b-8b67-fb2a26af4fec",
+		"name": "NCRTC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24104813"
+	},
+	"item": [
+		{
+			"name": "QR_Agent43",
+			"item": [
+				{
+					"name": "InitializeCache(QRAgent43)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"true\");\r",
+									"});\r",
+									"pm.test(\"Verify the complex response to get component values\", function (){\r",
+									"    pm.expect(pm.response.text()).to.deep.include(\"Succeeded\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRAgent}}/{{InitializeCacheQrEndPoint}}",
+							"host": [
+								"{{BaseURLQRAgent}}"
+							],
+							"path": [
+								"{{InitializeCacheQrEndPoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InitializeCacheFromCCDb(QRServer43)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"true\");\r",
+									"});\r",
+									"pm.test(\"Verify the complex response to get component values\", function (){\r",
+									"    pm.expect(pm.response.text()).to.deep.include(\"succeeded\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIAgent}}/{{InitializeCacheFromCCDb}}",
+							"host": [
+								"{{BaseURLQRCustomAPIAgent}}"
+							],
+							"path": [
+								"{{InitializeCacheFromCCDb}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InitializeCacheFromLocalDb(QRServer43)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"true\");\r",
+									"});\r",
+									"pm.test(\"Verify the complex response to get component values\", function (){\r",
+									"    pm.expect(pm.response.text()).to.deep.include(\"succeeded\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIAgent}}/{{InitializeCacheFromLocalDb}}",
+							"host": [
+								"{{BaseURLQRCustomAPIAgent}}"
+							],
+							"path": [
+								"{{InitializeCacheFromLocalDb}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AuthenticateQRAgent43",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"//tokenValue = bodyData.data.token\r",
+									"//console.log(\"TOKEN Value: \"+tokenValue)\r",
+									"//pm.environment.set(\"generatedToken\",tokenValue);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"DeviceCode\": 3401000102,\r\n  \"UserName\": \"3401000102@ncrtc\",\r\n  \"Password\": \"3401000102@ncrtc@3401000102\"\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURLQRAgent}}/{{userEndPointQrAuthenticate}}",
+							"host": [
+								"{{BaseURLQRAgent}}"
+							],
+							"path": [
+								"{{userEndPointQrAuthenticate}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBaseFareCustomAPIAgent43",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Base fare response successfully retrieved\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIAgent}}/fare/getbasefare?operatorCode=1&deviceTypeCode=21&ticketCode=100&travelDate=20230105&mediaTypeCode=2&cardProfileCode=1&sourceLocationCode=1&destinationLocationCode=2&fareType=1&roundingCoefficient=5&roundingFactor=1",
+							"host": [
+								"{{BaseURLQRCustomAPIAgent}}"
+							],
+							"path": [
+								"fare",
+								"getbasefare"
+							],
+							"query": [
+								{
+									"key": "operatorCode",
+									"value": "1"
+								},
+								{
+									"key": "deviceTypeCode",
+									"value": "21"
+								},
+								{
+									"key": "ticketCode",
+									"value": "100"
+								},
+								{
+									"key": "travelDate",
+									"value": "20230105"
+								},
+								{
+									"key": "mediaTypeCode",
+									"value": "2"
+								},
+								{
+									"key": "cardProfileCode",
+									"value": "1"
+								},
+								{
+									"key": "sourceLocationCode",
+									"value": "1"
+								},
+								{
+									"key": "destinationLocationCode",
+									"value": "2"
+								},
+								{
+									"key": "fareType",
+									"value": "1"
+								},
+								{
+									"key": "roundingCoefficient",
+									"value": "5"
+								},
+								{
+									"key": "roundingFactor",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMasterDataCustomAPIAgent43",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Master data successfully retrieved\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIAgent}}/general/getmasterdata?operatorCode=1",
+							"host": [
+								"{{BaseURLQRCustomAPIAgent}}"
+							],
+							"path": [
+								"general",
+								"getmasterdata"
+							],
+							"query": [
+								{
+									"key": "operatorCode",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductDetailsCustomAPIAgent43",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Product details successfully retrieved\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIAgent}}/fare/getproductdetails?operatorCode=1&deviceTypeCode=21",
+							"host": [
+								"{{BaseURLQRCustomAPIAgent}}"
+							],
+							"path": [
+								"fare",
+								"getproductdetails"
+							],
+							"query": [
+								{
+									"key": "operatorCode",
+									"value": "1"
+								},
+								{
+									"key": "deviceTypeCode",
+									"value": "21"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDistanceRangeCustomAPIAgent43",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Distance Range successfully retrieved\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIAgent}}/fare/getdistancerange?operatorCode=1",
+							"host": [
+								"{{BaseURLQRCustomAPIAgent}}"
+							],
+							"path": [
+								"fare",
+								"getdistancerange"
+							],
+							"query": [
+								{
+									"key": "operatorCode",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetGeneralDetailsCustomAPIAgent43",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"General configuration data retrieved successfully\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIAgent}}/general/getgeneraldetails",
+							"host": [
+								"{{BaseURLQRCustomAPIAgent}}"
+							],
+							"path": [
+								"general",
+								"getgeneraldetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOperatorDetailsCustomAPIAgent43",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Operator details successfully retrieved \");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIServer}}/passenger/getoperatorDetails",
+							"host": [
+								"{{BaseURLQRCustomAPIServer}}"
+							],
+							"path": [
+								"passenger",
+								"getoperatorDetails"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "QR_Agent42",
+			"item": [
+				{
+					"name": "InitializeCache(QRAgent42)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"true\");\r",
+									"});\r",
+									"pm.test(\"Verify the complex response to get component values\", function (){\r",
+									"    pm.expect(pm.response.text()).to.deep.include(\"Succeeded\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRAgent42}}/{{InitializeCacheQrEndPoint}}",
+							"host": [
+								"{{BaseURLQRAgent42}}"
+							],
+							"path": [
+								"{{InitializeCacheQrEndPoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InitializeCacheFromCCDb(QRServer42)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"true\");\r",
+									"});\r",
+									"pm.test(\"Verify the complex response to get component values\", function (){\r",
+									"    pm.expect(pm.response.text()).to.deep.include(\"succeeded\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIAgent42}}/{{InitializeCacheFromCCDb}}",
+							"host": [
+								"{{BaseURLQRCustomAPIAgent42}}"
+							],
+							"path": [
+								"{{InitializeCacheFromCCDb}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InitializeCacheFromLocalDb(QRServer42)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"true\");\r",
+									"});\r",
+									"pm.test(\"Verify the complex response to get component values\", function (){\r",
+									"    pm.expect(pm.response.text()).to.deep.include(\"succeeded\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIAgent42}}/{{InitializeCacheFromLocalDb}}",
+							"host": [
+								"{{BaseURLQRCustomAPIAgent42}}"
+							],
+							"path": [
+								"{{InitializeCacheFromLocalDb}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AuthenticateQRAgent42",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"//tokenValue = bodyData.data.token\r",
+									"//console.log(\"TOKEN Value: \"+tokenValue)\r",
+									"//pm.environment.set(\"generatedToken\",tokenValue);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"DeviceCode\": 3401000102,\r\n  \"UserName\": \"3401000102@ncrtc\",\r\n  \"Password\": \"3401000102@ncrtc@3401000102\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURLQRAgent42}}/{{userEndPointQrAuthenticate}}",
+							"host": [
+								"{{BaseURLQRAgent42}}"
+							],
+							"path": [
+								"{{userEndPointQrAuthenticate}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBaseFareCustomAPIAgent42",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Base fare response successfully retrieved\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIAgent42}}/fare/getbasefare?operatorCode=1&deviceTypeCode=21&ticketCode=100&travelDate=20230105&mediaTypeCode=2&cardProfileCode=1&sourceLocationCode=1&destinationLocationCode=2&fareType=1&roundingCoefficient=5&roundingFactor=1",
+							"host": [
+								"{{BaseURLQRCustomAPIAgent42}}"
+							],
+							"path": [
+								"fare",
+								"getbasefare"
+							],
+							"query": [
+								{
+									"key": "operatorCode",
+									"value": "1"
+								},
+								{
+									"key": "deviceTypeCode",
+									"value": "21"
+								},
+								{
+									"key": "ticketCode",
+									"value": "100"
+								},
+								{
+									"key": "travelDate",
+									"value": "20230105"
+								},
+								{
+									"key": "mediaTypeCode",
+									"value": "2"
+								},
+								{
+									"key": "cardProfileCode",
+									"value": "1"
+								},
+								{
+									"key": "sourceLocationCode",
+									"value": "1"
+								},
+								{
+									"key": "destinationLocationCode",
+									"value": "2"
+								},
+								{
+									"key": "fareType",
+									"value": "1"
+								},
+								{
+									"key": "roundingCoefficient",
+									"value": "5"
+								},
+								{
+									"key": "roundingFactor",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMasterDataCustomAPIAgent42",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Master data successfully retrieved\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIAgent42}}/general/getmasterdata?operatorCode=1",
+							"host": [
+								"{{BaseURLQRCustomAPIAgent42}}"
+							],
+							"path": [
+								"general",
+								"getmasterdata"
+							],
+							"query": [
+								{
+									"key": "operatorCode",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductDetailsCustomAPIAgent42",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Product details successfully retrieved\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIAgent42}}/fare/getproductdetails?operatorCode=1&deviceTypeCode=21",
+							"host": [
+								"{{BaseURLQRCustomAPIAgent42}}"
+							],
+							"path": [
+								"fare",
+								"getproductdetails"
+							],
+							"query": [
+								{
+									"key": "operatorCode",
+									"value": "1"
+								},
+								{
+									"key": "deviceTypeCode",
+									"value": "21"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDistanceRangeCustomAPIAgent42",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Distance Range successfully retrieved\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIAgent42}}/fare/getdistancerange?operatorCode=1",
+							"host": [
+								"{{BaseURLQRCustomAPIAgent42}}"
+							],
+							"path": [
+								"fare",
+								"getdistancerange"
+							],
+							"query": [
+								{
+									"key": "operatorCode",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetGeneralDetailsCustomAPIAgent42",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"General configuration data retrieved successfully\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIAgent42}}/general/getgeneraldetails",
+							"host": [
+								"{{BaseURLQRCustomAPIAgent42}}"
+							],
+							"path": [
+								"general",
+								"getgeneraldetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOperatorDetailsCustomAPIAgent42",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Operator details successfully retrieved \");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIAgent42}}/passenger/getoperatorDetails",
+							"host": [
+								"{{BaseURLQRCustomAPIAgent42}}"
+							],
+							"path": [
+								"passenger",
+								"getoperatorDetails"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "QR_Server54",
+			"item": [
+				{
+					"name": "InitializeCache(QRServer54)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"true\");\r",
+									"});\r",
+									"pm.test(\"Verify the complex response to get component values\", function (){\r",
+									"    pm.expect(pm.response.text()).to.deep.include(\"Succeeded\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRServer}}/{{InitializeCacheQrEndPoint}}",
+							"host": [
+								"{{BaseURLQRServer}}"
+							],
+							"path": [
+								"{{InitializeCacheQrEndPoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InitializeCacheFromCCDb(QRServer54)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"true\");\r",
+									"});\r",
+									"pm.test(\"Verify the complex response to get component values\", function (){\r",
+									"    pm.expect(pm.response.text()).to.deep.include(\"succeeded\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIServer}}/{{InitializeCacheFromCCDb}}",
+							"host": [
+								"{{BaseURLQRCustomAPIServer}}"
+							],
+							"path": [
+								"{{InitializeCacheFromCCDb}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InitializeCacheFromLocalDb(QRServer54)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"true\");\r",
+									"});\r",
+									"pm.test(\"Verify the complex response to get component values\", function (){\r",
+									"    pm.expect(pm.response.text()).to.deep.include(\"succeeded\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIServer}}/{{InitializeCacheFromLocalDb}}",
+							"host": [
+								"{{BaseURLQRCustomAPIServer}}"
+							],
+							"path": [
+								"{{InitializeCacheFromLocalDb}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AuthenticateQRServer54",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"//tokenValue = bodyData.data.token\r",
+									"//console.log(\"TOKEN Value: \"+tokenValue)\r",
+									"//pm.environment.set(\"generatedToken\",tokenValue);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"DeviceCode\": 3401000102,\r\n  \"UserName\": \"3401000102@ncrtc\",\r\n  \"Password\": \"3401000102@ncrtc@3401000102\"\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURLQRServer}}/{{userEndPointQrAuthenticate}}",
+							"host": [
+								"{{BaseURLQRServer}}"
+							],
+							"path": [
+								"{{userEndPointQrAuthenticate}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBaseFareCustomAPI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Base fare response successfully retrieved\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIServer}}/fare/getbasefare?operatorCode=1&deviceTypeCode=21&ticketCode=100&travelDate=20230105&mediaTypeCode=2&cardProfileCode=1&sourceLocationCode=1&destinationLocationCode=2&fareType=1&roundingCoefficient=5&roundingFactor=1",
+							"host": [
+								"{{BaseURLQRCustomAPIServer}}"
+							],
+							"path": [
+								"fare",
+								"getbasefare"
+							],
+							"query": [
+								{
+									"key": "operatorCode",
+									"value": "1"
+								},
+								{
+									"key": "deviceTypeCode",
+									"value": "21"
+								},
+								{
+									"key": "ticketCode",
+									"value": "100"
+								},
+								{
+									"key": "travelDate",
+									"value": "20230105"
+								},
+								{
+									"key": "mediaTypeCode",
+									"value": "2"
+								},
+								{
+									"key": "cardProfileCode",
+									"value": "1"
+								},
+								{
+									"key": "sourceLocationCode",
+									"value": "1"
+								},
+								{
+									"key": "destinationLocationCode",
+									"value": "2"
+								},
+								{
+									"key": "fareType",
+									"value": "1"
+								},
+								{
+									"key": "roundingCoefficient",
+									"value": "5"
+								},
+								{
+									"key": "roundingFactor",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMasterDataCustomAPI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Master data successfully retrieved\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIServer}}/general/getmasterdata?operatorCode=1",
+							"host": [
+								"{{BaseURLQRCustomAPIServer}}"
+							],
+							"path": [
+								"general",
+								"getmasterdata"
+							],
+							"query": [
+								{
+									"key": "operatorCode",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductDetailsCustomAPI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Product details successfully retrieved\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIServer}}/fare/getproductdetails?operatorCode=1&deviceTypeCode=21",
+							"host": [
+								"{{BaseURLQRCustomAPIServer}}"
+							],
+							"path": [
+								"fare",
+								"getproductdetails"
+							],
+							"query": [
+								{
+									"key": "operatorCode",
+									"value": "1"
+								},
+								{
+									"key": "deviceTypeCode",
+									"value": "21"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDistanceRangeCustomAPI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Distance Range successfully retrieved\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIServer}}/fare/getdistancerange?operatorCode=1",
+							"host": [
+								"{{BaseURLQRCustomAPIServer}}"
+							],
+							"path": [
+								"fare",
+								"getdistancerange"
+							],
+							"query": [
+								{
+									"key": "operatorCode",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetGeneralDetailsCustomAPI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"General configuration data retrieved successfully\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIServer}}/general/getgeneraldetails",
+							"host": [
+								"{{BaseURLQRCustomAPIServer}}"
+							],
+							"path": [
+								"general",
+								"getgeneraldetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOperatorDetailsCustomAPI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Operator details successfully retrieved \");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURLQRCustomAPIServer}}/passenger/getoperatorDetails",
+							"host": [
+								"{{BaseURLQRCustomAPIServer}}"
+							],
+							"path": [
+								"passenger",
+								"getoperatorDetails"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DMZ_Server53",
+			"item": [
+				{
+					"name": "GetChallenge",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"challangeValue = bodyData.data.challenge\r",
+									"console.log(\"Challange Value: \" +challangeValue)\r",
+									"pm.environment.set(\"challange\",challangeValue);\r",
+									"\r",
+									"authenticationTypeIdValue = bodyData.data.authenticationTypeId\r",
+									"console.log(\"authenticationTypeId Value: \"+authenticationTypeIdValue)\r",
+									"pm.environment.set(\"authenticationTypeId\",authenticationTypeIdValue);\r",
+									"\r",
+									"challengeIdValue = bodyData.data.challengeId\r",
+									"console.log(\"challengeId Value: \"+challengeIdValue)\r",
+									"pm.environment.set(\"challengeId\",challengeIdValue);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"true\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify the complex response to get component values\", function (){\r",
+									"    pm.expect(pm.response.text()).to.deep.include(\"succeeded\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"channelTypeId\": {{channelTypeId}},\r\n    \"channelRegNum\": \"{{channelRegNum}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURI}}/{{basePath}}/{{userEndPoint}}?",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"{{userEndPoint}}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DecryptRotateEncrypt",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"encryptedChallengeValue = bodyData.encryptedChallenge\r",
+									"console.log(\"encryptedChallenge Value: \"+encryptedChallengeValue)\r",
+									"pm.environment.set(\"encryptedChallenge\",encryptedChallengeValue);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"challenge\": \"{{challange}}\",\r\n  \"channelAuthKey\": \"{{channelAuthKey}}\",\r\n  \"authenticationTypeId\": {{authenticationTypeId}},\r\n  \"algorithm\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURIBackend}}/{{userEndPointBackend}}",
+							"host": [
+								"{{baseURIBackend}}"
+							],
+							"path": [
+								"{{userEndPointBackend}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"tokenValue = bodyData.data.token\r",
+									"console.log(\"TOKEN Value: \"+tokenValue)\r",
+									"pm.environment.set(\"generatedToken\",tokenValue);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"channelTypeId\": {{channelTypeId}},\r\n  \"channelRegNum\": \"{{channelRegNum}}\",\r\n  \"challengeId\": \"{{challengeId}}\",\r\n  \"rotatedEncryptChallenge\": \"{{encryptedChallenge}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURI}}/{{basePath}}/{{userEndPointBackendAuthenticate}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"{{userEndPointBackendAuthenticate}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RefreshToken",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"refreshTokenValue = bodyData.payload.data.token\r",
+									"console.log(\"Refreshed TOKEN Value: \"+refreshTokenValue)\r",
+									"pm.environment.set(\"generatedToken\",refreshTokenValue);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{generatedToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hashedData\": \"string\",\r\n    \"payload\": {\r\n        \"channelTypeId\": {{channelTypeId}},\r\n        \"channelRegNum\": \"{{channelRegNum}}\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURI}}/{{basePath}}/{{refreshTokenEndPoint}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"{{refreshTokenEndPoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMasterData",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"body = JSON.parse(responseBody);\r",
+									"console.log(body);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{generatedToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"hashedData\": \"string\",\r\n  \"payload\": {\r\n    \"deviceTypeId\": {{deviceTypeId}},\r\n    \"parameterVersion\": 1\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURI}}/{{basePath}}/{{get-master-data}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"{{get-master-data}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetFareDetails",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"body = JSON.parse(responseBody);\r",
+									"console.log(body);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{generatedToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hashedData\": \"string\",\r\n    \"payload\": {\r\n        \"sourceLocationCode\": 1,\r\n        \"destinationLocationCode\": 2,\r\n        \"ticketCode\": 0\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURI}}/{{basePath}}/{{get-fare-details}}",
+							"host": [
+								"{{baseURI}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"{{get-fare-details}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WebBackend_Server55",
+			"item": []
+		}
+	]
+}

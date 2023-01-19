@@ -1,0 +1,7 @@
+Step 1>Open cmd line and cd Desktop\PostmanExecution
+Step 2>newman run "C:\Users\Ashwin Netalkar\Desktop\PostmanExecution\NCRTC_HealthCheck.postman_collection.json" -e "C:\Users\Ashwin Netalkar\Desktop\PostmanExecution\QAEnvironment.postman_environment.json" --reporters=cli,htmlextra
+Step 3:Reports can be located at PostmanExecution\newman egNCRTC_HealthCheck-2023-01-05-12-31-38-346-0
+
+
+If the name of report needs customization
+newman run "C:\Users\Ashwin Netalkar\Desktop\PostmanExecution\NCRTC_HealthCheck.postman_collection.json" -e "C:\Users\Ashwin Netalkar\Desktop\PostmanExecution\QAEnvironment.postman_environment.json" --reporters=cli,htmlextra --reporter-htmlextra-title "index"
